@@ -105,7 +105,8 @@ export default {
         matrix.push(row);
       }
       this.searching = true
-      axios.post('https://backend-beta-sandy.vercel.app/api/find-words', {'matrix': matrix, 'n': this.wordLength})
+      const url = 'https://backend-beta-sandy.vercel.app/api/find-words'
+      axios.post(url, {'matrix': matrix, 'n': this.wordLength})
           .then((response) => {
             this.words = response.data.words;
             this.searching = false
